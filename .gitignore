@@ -1,0 +1,23 @@
+# Binarios compilados
+*.out
+*.exe
+a.out
+
+# Binarios específicos del curso (los que ya están compilados)
+enviar*
+probem*
+string
+linkedlist
+
+# Objetos de build
+*.o
+*.obj
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Notas locales (si las hubiera)
+*.local
