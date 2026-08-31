@@ -125,6 +125,17 @@ public:
   int Size() { return size; }
   bool empty() { return size == 0; }
 
+  T at(int pos) {
+    if (pos <= 0 || pos > size) {
+      return T();
+    }
+    Node<T> *temp = head;
+    for (int i = 1; i < pos; i++) {
+      temp = temp->next;
+    }
+    return temp->data;
+  }
+
   void insert(int pos, T val) {
     if (pos < 0 || pos > size) {
       return;
@@ -198,6 +209,9 @@ int main() {
   list.insert(1, 9);
   list.print();
 
+  cout << "pos 2 -> " << list.at(2) << endl;
+  cout << "pos 4 -> " << list.at(4) << endl;
+
   list.remove(4);
   list.print();
 
@@ -205,6 +219,5 @@ int main() {
   list.pop_back();
   list.print();
 
-  cout << (list.find(2) ? "si existe" : "no existe") << endl;
   return 0;
 }
