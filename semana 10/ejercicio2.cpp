@@ -1,25 +1,19 @@
-#include <ios>
 #include <iostream>
 
 using namespace std;
 
-int contar(int i, int suma, int n, int S, int a[20]) {
-  if (i == n) {
-    return suma == S ? 1 : 0;
-  }
-  return contar(i + 1, suma, n, S, a) + contar(i + 1, suma + a[i], n, S, a);
+void hanoi(int n, int a, int b, int c) {
+  if (n == 0) return;
+  hanoi(n - 1, a, c, b);
+  cout << n << " " << a << " " << c << "\n";
+  hanoi(n - 1, b, a, c);
 }
 
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  int n, S;
+  int n;
   cin >> n;
-  cin >> S;
-  int a[20];
-  for (int i = 0; i < n; i++) {
-    cin >> a[i];
-  }
-  cout << contar(0, 0, n, S, a) << "\n";
+  hanoi(n, 1, 2, 3);
   return 0;
 }
